@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.7.3;
 
 import '@openzeppelin/contracts/token/ERC20/ERC20.sol';
@@ -13,7 +14,7 @@ contract Weth is ERC20 {
     // to withdraw, simply check that the sender has enough tokens, burn them and send real ether
     function withdraw(uint amount) external {
         require(balanceOf(msg.sender) >= amount, 'Balance too low');
-        _burn(msg.send, amount);
+        _burn(msg.sender, amount);
         msg.sender.transfer(amount);
     }
 }
