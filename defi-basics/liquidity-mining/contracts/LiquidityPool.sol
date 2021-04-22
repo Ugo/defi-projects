@@ -23,8 +23,10 @@ contract LiquidityPool is LpToken{
         }
         // send the rewards to the depositer
         _distributeRewards(msg.sender);
+
         // send the underlying token from the sender to this contract
         underlyingToken.transferFrom(msg.sender, address(this), amount);
+        
         // give the sender some LP tokens to redeem his original tokens later
         _mint(msg.sender, amount);
     }
@@ -32,8 +34,10 @@ contract LiquidityPool is LpToken{
     function withdraw(uint amount) external {
         require(balanceOf(msg.sender) >= amount, 'not enough LP tokens');
         _distributeRewards(msg.sender);
+        
         // transfer the underlying token
         underlyingToken.transfer(msg.sender, amount);
+        
         // burn the LP tokens
         _burn(msg.sender, amount);
     }
