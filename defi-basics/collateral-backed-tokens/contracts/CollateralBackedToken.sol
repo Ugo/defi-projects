@@ -8,7 +8,7 @@ contract CollateralBackedToken is ERC20 {
     uint public price = 1;
 
     constructor(address _collateral) ERC20('Collateral Backed Token', 'CBT') {
-        collateral = IERC20(collateral);
+        collateral = IERC20(_collateral);
     }
 
     // send the amount of ERC20 token to this contract's address, then mint the matching amount of CBT for the sender.
@@ -22,7 +22,7 @@ contract CollateralBackedToken is ERC20 {
     function withdraw(uint tokenAmount) external {
         require(balanceOf(msg.sender) >= tokenAmount, 'Balance too low');
         _burn(msg.sender, tokenAmount);
-        collateral.transfer(tokenAmount / price);
+        collateral.transfer(msg.sender, tokenAmount / price);
     }
 
 }
