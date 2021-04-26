@@ -2,11 +2,11 @@ pragma solidity ^0.7.3;
 
 import '@openzeppelin/contracts/token/ERC20/ERC20.sol';
 
-contract ToeknOpenZeppelin1 is ERC20 {
+contract TokenOpenZeppelin1 is ERC20 {
     constructor() ERC20('Token Name', 'TOKEN_TICKER') {}
 }
 
-contract ToeknOpenZeppelin3 is ERC20 {
+contract TokenOpenZeppelin3 is ERC20 {
     address public admin;
 
     constructor() ERC20('Token Name', 'TOKEN_TICKER') {
@@ -19,7 +19,7 @@ contract ToeknOpenZeppelin3 is ERC20 {
     }
 }
 
-contract ToeknOpenZeppelin4 is ERC20 {
+contract TokenOpenZeppelin4 is ERC20 {
     
     constructor() ERC20('Token Name', 'TOKEN_TICKER') {}
 

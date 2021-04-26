@@ -18,7 +18,7 @@ contract MyDefiProject {
     }
 
     function supply(address cTokenAddress, uint underlyingAmount ) public {
-    CTokenInterface cToken = CTokenInterface(cTokenAddress);
+        CTokenInterface cToken = CTokenInterface(cTokenAddress);
         address underlyingAddress = cToken.underlying(); 
         IERC20(underlyingAddress).approve(cTokenAddress, underlyingAmount);
         uint result = cToken.mint(underlyingAmount);
