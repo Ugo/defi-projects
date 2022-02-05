@@ -15,6 +15,6 @@ contract Weth is ERC20 {
     function withdraw(uint amount) external {
         require(balanceOf(msg.sender) >= amount, 'Balance too low');
         _burn(msg.sender, amount);
-        payable(msg.sender).transfer(amount);
+        msg.sender.transfer(amount);
     }
 }
